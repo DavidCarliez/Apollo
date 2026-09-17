@@ -31,6 +31,7 @@
     <ProjectReference Include="..\Tasks\Tasks.csproj" />
     <ProjectReference Include="..\TcpProfile\TcpProfile.csproj" />
     <ProjectReference Include="..\WebsocketProfile\WebsocketProfile.csproj" />
+    <ProjectReference Include="..\TelegramProfile\TelegramProfile.csproj" />
     <ProjectReference Include="..\AzureBlobProfile\AzureBlobProfile.csproj" />
   </ItemGroup>
   <ItemGroup>

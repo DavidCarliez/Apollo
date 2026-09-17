@@ -143,7 +143,7 @@ class Apollo(PayloadType):
     semver = "2.4.20"
     wrapper = False
     wrapped_payloads = ["scarecrow_wrapper", "service_wrapper"]
-    c2_profiles = ["http", "httpx", "smb", "tcp", "websocket", "azure_blob"]
+    c2_profiles = ["http", "httpx", "smb", "tcp", "websocket", "azure_blob", "telegram"]
     note = """
 A fully featured .NET 4.0 compatible training agent. Version: {}. 
 NOTE: P2P Not compatible with v2.2 agents! 
@@ -909,7 +909,8 @@ def filter_config_defines(config_path: str, selected_profiles: list[str]) -> Non
         'smb': '#define SMB',
         'tcp': '#define TCP',
         'websocket': '#define WEBSOCKET',
-        'azure_blob': '#define AZURE_BLOB'
+        'azure_blob': '#define AZURE_BLOB',
+        'telegram': '#define TELEGRAM'
     }
 
     # Read lines
@@ -947,7 +948,8 @@ def filter_csproj_profile_references(csproj_path: str, selected_profiles: list[s
         'smb': '    <ProjectReference Include="..\\NamedPipeProfile\\NamedPipeProfile.csproj" />',
         'tcp': '    <ProjectReference Include="..\\TcpProfile\\TcpProfile.csproj" />',
         'websocket': '    <ProjectReference Include="..\\WebsocketProfile\\WebsocketProfile.csproj" />',
-        "azure_blob": '    <ProjectReference Include="..\AzureBlobProfile\AzureBlobProfile.csproj" />'
+        "azure_blob": '    <ProjectReference Include="..\\AzureBlobProfile\\AzureBlobProfile.csproj" />',
+        'telegram': '    <ProjectReference Include="..\\TelegramProfile\\TelegramProfile.csproj" />'
     }
 
     # Also track HttpxTransform

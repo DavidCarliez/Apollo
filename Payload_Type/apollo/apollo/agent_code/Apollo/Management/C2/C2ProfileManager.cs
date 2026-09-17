@@ -5,6 +5,9 @@ using HttpTransport;
 #if HTTPX
 using HttpxTransport;
 #endif
+#if TELEGRAM
+using TelegramTransport;
+#endif
 using System;
 using System.Collections.Generic;
 
@@ -29,6 +32,12 @@ namespace Apollo.Management.C2
             if (c2 == typeof(HttpxProfile))
             {
                 return new HttpxProfile(parameters, serializer, Agent);
+            }
+#endif
+#if TELEGRAM
+            if (c2 == typeof(TelegramProfile))
+            {
+                return new TelegramProfile(parameters, serializer, Agent);
             }
 #endif
             throw new ArgumentException($"Unsupported C2 Profile type: {c2.Name}");

