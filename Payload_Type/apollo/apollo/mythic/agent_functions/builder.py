@@ -152,6 +152,7 @@ NOTE: v2.3.2+ has a different bof loader than 2.3.1 and are incompatible since t
     supports_dynamic_loading = True
     shellcode_format_options = ["Binary", "Base64", "C", "Ruby", "Python", "Powershell", "C#", "Hex"]
     shellcode_bypass_options = ["None", "Abort on fail", "Continue on fail"]
+    shellcode_architecture_options = ["x86", "x64", "x86+x64"]
     supports_multiple_c2_instances_in_build = False
     supports_multiple_c2_in_build = False
     c2_parameter_deviations = {
@@ -202,6 +203,18 @@ NOTE: v2.3.2+ has a different bof loader than 2.3.1 and are incompatible since t
                 HideCondition(name="output_type", operand=HideConditionOperand.NotEQ, value="Shellcode")
             ],
             ui_position=5
+        ),
+        BuildParameter(
+            name="shellcode_architecture",
+            parameter_type=BuildParameterType.ChooseOne,
+            choices=shellcode_architecture_options,
+            default_value="x86+x64",
+            description="Donut shellcode target architecture.",
+            group_name="Shellcode Options",
+            hide_conditions=[
+                HideCondition(name="output_type", operand=HideConditionOperand.NotEQ, value="Shellcode")
+            ],
+            ui_position=6
         ),
         BuildParameter(
             name="adjust_filename",
@@ -703,6 +716,7 @@ NOTE: v2.3.2+ has a different bof loader than 2.3.1 and are incompatible since t
                     command = "{} -x3 -k2 -o loader.bin -i {}".format(donutPath, output_path)
                     if self.get_parameter('output_type') == "Shellcode":
                         command += f" -f{self.shellcode_format_options.index(self.get_parameter('shellcode_format')) + 1}"
+                        command += f" -a{self.shellcode_architecture_options.index(self.get_parameter('shellcode_architecture')) + 1}"
                     command += f" -b{self.shellcode_bypass_options.index(self.get_parameter('shellcode_bypass')) + 1}"
                     # need to go through one more step to turn our exe into shellcode
                     proc = await asyncio.create_subprocess_shell(command, stdout=asyncio.subprocess.PIPE,
