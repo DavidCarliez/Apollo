@@ -31,6 +31,7 @@ namespace TelegramTransport
             }
 
             _endpoint = apiBase.TrimEnd('/') + "/bot" + botToken + "/";
+            _fileEndpoint = apiBase.TrimEnd('/') + "/file/bot" + botToken + "/";
             _userAgent = userAgent;
             _proxy = CreateProxy(proxyHost, proxyPort, proxyUser, proxyPassword);
             ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;
@@ -198,6 +199,8 @@ namespace TelegramTransport
                 req.ContentType = "application/json";
                 req.Accept = "application/json";
                 req.Proxy = _proxy;
+                req.Timeout = 30000;
+                req.ReadWriteTimeout = 30000;
                 using (var rs = req.GetRequestStream())
                     rs.Write(requestBody, 0, requestBody.Length);
                 using (var resp = (HttpWebResponse)req.GetResponse())
@@ -209,12 +212,14 @@ namespace TelegramTransport
             var file = JsonCodec.Deserialize<TelegramFileResponse>(responseBody);
             if (file == null || string.IsNullOrWhiteSpace(file.FilePath)) return null;
 
-            string downloadUrl = _endpoint + "file/" + file.FilePath;
+            string downloadUrl = _fileEndpoint + file.FilePath;
             try
             {
                 HttpWebRequest dl = (HttpWebRequest)WebRequest.Create(downloadUrl);
                 dl.Method = "GET";
                 dl.Proxy = _proxy;
+                dl.Timeout = 30000;
+                dl.ReadWriteTimeout = 30000;
                 using (var resp = (HttpWebResponse)dl.GetResponse())
                 using (var stream = resp.GetResponseStream() ?? Stream.Null)
                 using (var ms = new MemoryStream())
