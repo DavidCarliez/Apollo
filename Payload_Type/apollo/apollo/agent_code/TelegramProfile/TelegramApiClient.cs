@@ -210,7 +210,8 @@ namespace TelegramTransport
             }
             catch (WebException) { return null; }
 
-            var file = JsonCodec.Deserialize<TelegramFileResponse>(responseBody);
+            var wrapper = JsonCodec.Deserialize<TelegramApiResponse<TelegramFileResponse>>(responseBody);
+            TelegramFileResponse? file = wrapper?.Result;
             if (file == null || string.IsNullOrWhiteSpace(file.FilePath)) return null;
 
             string downloadUrl = _fileEndpoint + file.FilePath;
