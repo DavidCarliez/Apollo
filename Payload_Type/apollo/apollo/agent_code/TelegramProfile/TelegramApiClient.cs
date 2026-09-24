@@ -188,7 +188,7 @@ namespace TelegramTransport
 
         public byte[]? DownloadDocument(string fileId)
         {
-            var request = new { file_id = fileId };
+            var request = new TelegramGetFileRequest { FileId = fileId };
             byte[] requestBody = Encoding.UTF8.GetBytes(JsonCodec.Serialize(request));
             string responseBody = string.Empty;
             try
@@ -337,6 +337,13 @@ namespace TelegramTransport
     }
 
     [DataContract]
+    internal sealed class TelegramGetFileRequest
+    {
+        [DataMember(Name = "file_id")]
+        public string FileId { get; set; } = string.Empty;
+    }
+
+    [DataContract]
     internal sealed class TelegramFileResponse
     {
         [DataMember(Name = "file_id")]
@@ -345,7 +352,8 @@ namespace TelegramTransport
         public string? FilePath { get; set; }
     }
 
-internal sealed class TelegramUser
+    [DataContract]
+    internal sealed class TelegramUser
     {
         [DataMember(Name = "is_bot")]
         public bool IsBot { get; set; }
