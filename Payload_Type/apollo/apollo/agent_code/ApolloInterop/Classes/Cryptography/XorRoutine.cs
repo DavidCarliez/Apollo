@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Interfaces;
+﻿using AgInterop.Interfaces;
 
-namespace ApolloInterop.Classes.Cryptography
+namespace AgInterop.Classes.Cryptography
 {
     public class XorRoutine : ICryptographicRoutine
     {

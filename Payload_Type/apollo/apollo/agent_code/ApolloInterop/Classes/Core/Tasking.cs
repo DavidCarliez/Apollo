@@ -1,14 +1,14 @@
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Enums.ApolloEnums;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Enums.AgCoreEnums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using ApolloInterop.Serializers;
-using ApolloInterop.Classes.Impersonation;
+using AgInterop.Serializers;
+using AgInterop.Classes.Impersonation;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class Tasking : ITask
     {

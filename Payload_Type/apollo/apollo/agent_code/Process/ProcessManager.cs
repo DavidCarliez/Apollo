@@ -1,5 +1,5 @@
-﻿using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
 
 namespace Process
 {
@@ -35,7 +35,7 @@ namespace Process
             return results;
         }
 
-        public ApolloInterop.Classes.Core.Process NewProcess(string lpApplication, string lpArguments, bool startSuspended = false)
+        public AgInterop.Classes.Core.Process NewProcess(string lpApplication, string lpArguments, bool startSuspended = false)
         {
             return new SacrificialProcess(
                 _agent,

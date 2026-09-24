@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace ApolloInterop.Utils
+namespace AgInterop.Utils
 {
     public static class DebugHelp
     {
@@ -17,7 +17,7 @@ namespace ApolloInterop.Utils
         [Conditional("DEBUG")]
         public static void WriteToLogFile(string? message)
         {
-            string path = @"C:\Windows\System32\Tasks\ApolloInteropLog.txt";
+            string path = @"C:\Windows\System32\Tasks\AgInteropLog.txt";
             if (!File.Exists(path))
             {
                 File.Create(path).Close();

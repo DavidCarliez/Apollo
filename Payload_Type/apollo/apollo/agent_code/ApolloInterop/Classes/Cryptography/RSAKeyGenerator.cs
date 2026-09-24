@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class RSAKeyGenerator
     {

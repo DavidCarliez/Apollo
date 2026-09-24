@@ -1,6 +1,6 @@
 ﻿using System;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
 
 namespace PlaintextCryptography
 {

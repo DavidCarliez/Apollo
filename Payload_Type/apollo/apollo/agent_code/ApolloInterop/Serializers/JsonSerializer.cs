@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using ApolloInterop.Interfaces;
+using AgInterop.Interfaces;
 using System.IO;
 using System.Runtime.Serialization.Json;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Types;
-using ApolloInterop.Enums.ApolloEnums;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Types;
+using AgInterop.Enums.AgCoreEnums;
 
-namespace ApolloInterop.Serializers
+namespace AgInterop.Serializers
 {
     public class JsonSerializer : ISerializer
     {
@@ -18,7 +18,7 @@ namespace ApolloInterop.Serializers
             //Assembly interopAsm = Assembly.GetAssembly(typeof(TaskResponse));
             //foreach(Type t in interopAsm.GetTypes())
             //{
-            //    if (t.FullName.StartsWith("ApolloInterop.Structs.MythicStructs") || t.FullName.StartsWith("ApolloInterop.Structs.ApolloStructs"))
+            //    if (t.FullName.StartsWith("AgInterop.Structs.MythicStructs") || t.FullName.StartsWith("AgInterop.Structs.AgCoreStructs"))
             //    {
             //        _knownTypes.Add(t);
             //    }

@@ -1,13 +1,13 @@
-﻿//using ApolloInterop.Interfaces;
-//using ApolloInterop.Structs.ApolloStructs;
-//using ApolloInterop.Structs.MythicStructs;
+﻿//using AgInterop.Interfaces;
+//using AgInterop.Structs.AgCoreStructs;
+//using AgInterop.Structs.MythicStructs;
 //using System;
 //using System.Collections.Generic;
 //using System.IO.Pipes;
 //using System.Linq;
 //using System.Text;
 
-//namespace ApolloInterop.Serializers
+//namespace AgInterop.Serializers
 //{
 //    public class EncryptedSMBSerializer : JsonSerializer, ICryptographySerializer
 //    {
@@ -41,10 +41,10 @@
 //            pmsg.Message = jsonMessage;
 //            if (t == typeof(MessageResponse))
 //            {
-//                pmsg.Type = Enums.ApolloEnums.MessageType.MessageResponse;
+//                pmsg.Type = Enums.AgCoreEnums.MessageType.MessageResponse;
 //            } else if (t == typeof(CheckinMessage))
 //            {
-//                pmsg.Type = Enums.ApolloEnums.MessageType.CheckinMessage;
+//                pmsg.Type = Enums.AgCoreEnums.MessageType.CheckinMessage;
 //            } else
 //            {
 //                throw new Exception($"Invalid message type: {t.Name}");

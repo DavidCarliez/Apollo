@@ -1,10 +1,10 @@
-﻿using ApolloInterop.Classes.Api;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Classes.Api;
+using AgInterop.Classes.Events;
+using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
 using System;
 
-namespace ApolloInterop.Classes.Core
+namespace AgInterop.Classes.Core
 {
     public abstract class Process : IProcess
     {
@@ -85,7 +85,7 @@ namespace ApolloInterop.Classes.Core
 
         public abstract bool Start();
 
-        public abstract bool StartWithCredentials(ApolloLogonInformation logonInfo);
+        public abstract bool StartWithCredentials(AgCoreLogonInformation logonInfo);
 
         public abstract bool StartWithCredentials(IntPtr hToken);
 

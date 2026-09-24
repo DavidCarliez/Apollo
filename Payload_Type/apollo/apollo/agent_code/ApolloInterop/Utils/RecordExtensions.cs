@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace ApolloInterop.Utils;
+namespace AgInterop.Utils;
 
 public static class RecordExtensions
 {

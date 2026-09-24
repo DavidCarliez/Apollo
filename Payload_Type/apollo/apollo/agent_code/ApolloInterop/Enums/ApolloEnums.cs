@@ -1,6 +1,6 @@
-﻿namespace ApolloInterop.Enums
+﻿namespace AgInterop.Enums
 {
-    namespace ApolloEnums
+    namespace AgCoreEnums
     {
         public enum Socks5Error
         {

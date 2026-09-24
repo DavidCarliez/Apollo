@@ -1,17 +1,17 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Structs.AgCoreStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace ApolloInterop.Serializers
+namespace AgInterop.Serializers
 {
-    public class ApolloSerializationBinder : SerializationBinder
+    public class AgCoreSerializationBinder : SerializationBinder
     {
         public override Type BindToType(string assemblyName, string typeName)
         {
-            if (typeName == "ApolloInterop.Structs.ApolloStructs.PeerMessage")
+            if (typeName == "AgInterop.Structs.AgCoreStructs.PeerMessage")
             {
                 return typeof(PeerMessage);
             }

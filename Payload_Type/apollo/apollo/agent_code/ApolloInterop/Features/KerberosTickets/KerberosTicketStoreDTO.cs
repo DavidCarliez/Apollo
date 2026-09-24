@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ApolloInterop.Features.KerberosTickets;
+namespace AgInterop.Features.KerberosTickets;
 
 //for the moment this is the same as the KerberosTicketDataDTO, but it will be used for the store so more / different fileds may be added that are unique to the store
 [DataContract]

@@ -6,11 +6,11 @@
 
 #if RUN
 
-using ApolloInterop.Classes;
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Classes.Core;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Classes.Api;
+using AgInterop.Classes.Core;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
@@ -129,7 +129,7 @@ namespace Tasks
             _complete.Set();
         }
 
-        private void DataReceived(object sender, ApolloInterop.Classes.Events.StringDataEventArgs e)
+        private void DataReceived(object sender, AgInterop.Classes.Events.StringDataEventArgs e)
         {
             if (!string.IsNullOrEmpty(e.Data))
             {

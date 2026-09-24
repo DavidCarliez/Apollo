@@ -1,12 +1,12 @@
 ﻿using System;
-using Apollo.Peers.SMB;
-using Apollo.Peers.TCP;
-using Apollo.Peers.Webshell;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
-using AI = ApolloInterop;
-namespace Apollo.Management.Peer
+using AgCore.Peers.SMB;
+using AgCore.Peers.TCP;
+using AgCore.Peers.Webshell;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
+using AI = AgInterop;
+namespace AgCore.Management.Peer
 {
     public class PeerManager : AI.Classes.P2P.PeerManager
     {

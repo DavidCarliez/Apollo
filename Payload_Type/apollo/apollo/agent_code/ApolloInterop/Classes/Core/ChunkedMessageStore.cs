@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Classes.Events;
-using ApolloInterop.Interfaces;
+﻿using AgInterop.Classes.Events;
+using AgInterop.Interfaces;
 using System;
 
-namespace ApolloInterop.Classes.Core
+namespace AgInterop.Classes.Core
 {
     public class ChunkedMessageStore<T> where T : IChunkMessage
     {

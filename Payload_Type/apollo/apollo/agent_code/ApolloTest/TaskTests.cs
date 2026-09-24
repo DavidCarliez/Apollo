@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Apollo;
-using Apollo.Jobs;
-using Apollo.Tasks;
+using AgCore;
+using AgCore.Jobs;
+using AgCore.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ApolloTests
+namespace AgCoreTests
 {
     [TestClass]
     public class TaskTests
@@ -184,7 +184,7 @@ namespace ApolloTests
             Agent agent = new Agent(default);
             Task task = new Task("run", "whoami /priv", "1");
             Job job = new Job(task, agent);
-            Apollo.Tasks.Process.Execute(job, agent);
+            AgCore.Tasks.Process.Execute(job, agent);
             // Ensure the task is marked as complete
             Assert.IsTrue(task.status == "complete");
             // Check to see if output contains PRIVILEGES
@@ -196,7 +196,7 @@ namespace ApolloTests
             Agent agent = new Agent(default);
             Task task = new Task("run", "blah /asdf", "1");
             Job job = new Job(task, agent);
-            Apollo.Tasks.Process.Execute(job, agent);
+            AgCore.Tasks.Process.Execute(job, agent);
             // Ensure the task is marked as complete
             Assert.IsTrue(task.status == "error");
         }
@@ -205,7 +205,7 @@ namespace ApolloTests
         {
             Task task = new Task("ps", null, "1");
             Job job = new Job(task, null);
-            Apollo.Tasks.ProcessList.Execute(job, null);
+            AgCore.Tasks.ProcessList.Execute(job, null);
             // Ensure the task is marked as complete
             Assert.IsTrue(task.status == "complete");
             // Ensure we have the correct type of output
@@ -217,7 +217,7 @@ namespace ApolloTests
             System.IO.File.Copy("C:\\Users\\Public\\test.txt", "C:\\Users\\Public\\asdfasdf.txt");
             Task task = new Task("rm", "C:\\Users\\Public\\asdfasdf.txt", "1");
             Job job = new Job(task, null);
-            Apollo.Tasks.Remove.Execute(job, null);
+            AgCore.Tasks.Remove.Execute(job, null);
             // Ensure the task is marked as complete
             Assert.IsTrue(task.status == "complete");
             // Ensure we have the correct type of output

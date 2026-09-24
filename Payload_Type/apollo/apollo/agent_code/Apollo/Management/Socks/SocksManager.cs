@@ -1,9 +1,9 @@
-﻿using AI = ApolloInterop;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+﻿using AI = AgInterop;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System.Collections.Concurrent;
 
-namespace Apollo.Management.Socks
+namespace AgCore.Management.Socks
 {
     public class SocksManager : AI.Classes.SocksManager
     {

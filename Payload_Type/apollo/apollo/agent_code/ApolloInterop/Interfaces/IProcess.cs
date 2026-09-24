@@ -1,7 +1,7 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Structs.AgCoreStructs;
 using System;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IProcess
     {
@@ -10,7 +10,7 @@ namespace ApolloInterop.Interfaces
         void WaitForExit(int milliseconds);
 
         bool Start();
-        bool StartWithCredentials(ApolloLogonInformation logonInfo);
+        bool StartWithCredentials(AgCoreLogonInformation logonInfo);
 
         bool StartWithCredentials(IntPtr hToken);
 

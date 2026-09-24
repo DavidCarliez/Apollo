@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Structs.MythicStructs;
 using System.Net.Sockets;
-using ApolloInterop.Classes;
+using AgInterop.Classes;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IRpfwdManager
     {

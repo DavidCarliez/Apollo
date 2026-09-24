@@ -1,4 +1,4 @@
-﻿namespace ApolloInterop.Features.WindowsTypesAndAPIs;
+﻿namespace AgInterop.Features.WindowsTypesAndAPIs;
 
 public class NtdllAPIs
 {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Types;
+using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Types;
 
-namespace ApolloInterop.Serializers
+namespace AgInterop.Serializers
 {
     public class EncryptedJsonSerializer : JsonSerializer, ICryptographySerializer
     {

@@ -5,9 +5,9 @@
 #endif
 
 #if SCREENSHOT
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +15,13 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using ApolloInterop.Utils;
+using AgInterop.Utils;
 
 namespace Tasks
 {
     public class screenshot : Tasking
     {
-        public screenshot(IAgent agent, ApolloInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
+        public screenshot(IAgent agent, AgInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
         {
         }
 

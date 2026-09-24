@@ -1,5 +1,5 @@
-﻿using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
+﻿using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Security;
 
-namespace ApolloInterop.Structs.ApolloStructs
+namespace AgInterop.Structs.AgCoreStructs
 {
 
     [DataContract]
@@ -27,7 +27,7 @@ namespace ApolloInterop.Structs.ApolloStructs
         }
     }
 
-    public struct ApolloTokenInformation
+    public struct AgCoreTokenInformation
     {
         public IntPtr Token;
         public bool IsPrimary;
@@ -42,7 +42,7 @@ namespace ApolloInterop.Structs.ApolloStructs
         public bool BlockDLLs;
     }
 
-    public struct ApolloLogonInformation
+    public struct AgCoreLogonInformation
     {
         public readonly string Username;
         public readonly string Password;
@@ -50,7 +50,7 @@ namespace ApolloInterop.Structs.ApolloStructs
         public readonly string Domain;
         public readonly bool NetOnly;
 
-        public ApolloLogonInformation(string username, string password, string domain = ".", bool netOnly=false)
+        public AgCoreLogonInformation(string username, string password, string domain = ".", bool netOnly=false)
         {
             if (string.IsNullOrEmpty(username))
                 throw new Exception("Username cannot be null or empty.");

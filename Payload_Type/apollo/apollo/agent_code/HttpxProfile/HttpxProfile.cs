@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Types.Delegates;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Types.Delegates;
 using System.Net;
-using ApolloInterop.Enums.ApolloEnums;
+using AgInterop.Enums.AgCoreEnums;
 using HttpxTransform;
 using System.Text;
 using System.IO;
@@ -21,7 +21,7 @@ using System.Diagnostics;
 namespace HttpxTransport
 {
     /// <summary>
-    /// HttpxProfile implementation for Apollo agent
+    /// HttpxProfile implementation for AgCore agent
     /// Supports malleable profiles with message transforms
     /// </summary>
     public class HttpxProfile : C2Profile, IC2Profile

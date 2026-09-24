@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Structs.MythicStructs;
 using System.IO;
 using System.Threading;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IFileManager
     {

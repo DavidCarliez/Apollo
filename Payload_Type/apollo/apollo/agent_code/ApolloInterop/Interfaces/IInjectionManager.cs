@@ -1,7 +1,7 @@
-﻿using ApolloInterop.Classes.Core;
+﻿using AgInterop.Classes.Core;
 using System;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IInjectionManager
     {

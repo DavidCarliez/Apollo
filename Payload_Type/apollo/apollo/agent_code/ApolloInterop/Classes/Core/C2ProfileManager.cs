@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using ApolloInterop.Interfaces;
+using AgInterop.Interfaces;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class C2ProfileManager : IC2ProfileManager 
     {

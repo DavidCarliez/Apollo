@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Structs.MythicStructs;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface ISocksManager
     {

@@ -1,5 +1,5 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Utils;
+﻿using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.IO.Pipes;
@@ -8,7 +8,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public class AsyncNamedPipeServer
     {

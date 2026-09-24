@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Types.Delegates;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Enums.ApolloEnums;
+﻿using AgInterop.Types.Delegates;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Enums.AgCoreEnums;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface ITaskManager
     {

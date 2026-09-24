@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Structs.MythicStructs;
 
-namespace ApolloInterop.Features.KerberosTickets;
+namespace AgInterop.Features.KerberosTickets;
 
 /// <summary>
 /// Should serve to manage kerberos tickets.

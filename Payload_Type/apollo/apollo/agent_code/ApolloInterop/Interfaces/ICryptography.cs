@@ -1,4 +1,4 @@
-﻿namespace ApolloInterop.Interfaces
+﻿namespace AgInterop.Interfaces
 {
     public interface ICryptography
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Sockets;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class RpfwdManager : IRpfwdManager
     {

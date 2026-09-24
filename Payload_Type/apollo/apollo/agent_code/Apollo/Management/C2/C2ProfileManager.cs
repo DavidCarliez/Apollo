@@ -1,4 +1,4 @@
-﻿using ApolloInterop.Interfaces;
+﻿using AgInterop.Interfaces;
 #if HTTP
 using HttpTransport;
 #endif
@@ -11,9 +11,9 @@ using TelegramTransport;
 using System;
 using System.Collections.Generic;
 
-namespace Apollo.Management.C2
+namespace AgCore.Management.C2
 {
-    public class C2ProfileManager : ApolloInterop.Classes.C2ProfileManager
+    public class C2ProfileManager : AgInterop.Classes.C2ProfileManager
     {
         public C2ProfileManager(IAgent agent) : base(agent)
         {

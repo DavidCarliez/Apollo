@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using ApolloInterop.Interfaces;
+using AgInterop.Interfaces;
 using System.Collections.Concurrent;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Classes.Core;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Classes.Core;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class C2Profile
     {

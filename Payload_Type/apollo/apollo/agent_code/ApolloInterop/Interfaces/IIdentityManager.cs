@@ -1,9 +1,9 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
 using System;
 using System.Security.Principal;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IIdentityManager
     {
@@ -11,7 +11,7 @@ namespace ApolloInterop.Interfaces
         WindowsIdentity GetCurrentImpersonationIdentity();
         WindowsIdentity GetOriginal();
 
-        bool GetCurrentLogonInformation(out ApolloLogonInformation logonInfo);
+        bool GetCurrentLogonInformation(out AgCoreLogonInformation logonInfo);
 
         void Revert();
 
@@ -22,7 +22,7 @@ namespace ApolloInterop.Interfaces
         void SetImpersonationIdentity(WindowsIdentity identity);
         void SetImpersonationIdentity(IntPtr hToken);
 
-        bool SetIdentity(ApolloLogonInformation token);
+        bool SetIdentity(AgCoreLogonInformation token);
 
         IntegrityLevel GetIntegrityLevel();
 

@@ -1,23 +1,23 @@
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
+using AgInterop.Classes.Api;
+using AgInterop.Interfaces;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
 using System;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
-using static ApolloInterop.Constants.Win32;
-using static ApolloInterop.Enums.Win32;
-using static ApolloInterop.Structs.Win32;
+using static AgInterop.Constants.Win32;
+using static AgInterop.Enums.Win32;
+using static AgInterop.Structs.Win32;
 
-namespace Apollo.Management.Identity;
+namespace AgCore.Management.Identity;
 
 public class IdentityManager : IIdentityManager
 {
     private readonly IAgent _agent;
     private readonly object _identitySync = new();
 
-    private ApolloLogonInformation _userCredential;
+    private AgCoreLogonInformation _userCredential;
     private WindowsIdentity _originalIdentity;
     private WindowsIdentity _currentPrimaryIdentity;
     private WindowsIdentity _currentImpersonationIdentity;
@@ -143,7 +143,7 @@ public class IdentityManager : IIdentityManager
         _currentPrimaryIdentity = _originalIdentity;
         _currentImpersonationIdentity = _originalIdentity;
         _isImpersonating = false;
-        _userCredential = new ApolloLogonInformation();
+        _userCredential = new AgCoreLogonInformation();
 
         _executingThread = _GetCurrentThread();
         SetImpersonationToken();
@@ -273,7 +273,7 @@ public class IdentityManager : IIdentityManager
 
         UnloadLoadedProfile();
 
-        _userCredential = new ApolloLogonInformation();
+        _userCredential = new AgCoreLogonInformation();
         _currentImpersonationIdentity = _originalIdentity;
         _currentPrimaryIdentity = _originalIdentity;
         _isImpersonating = false;
@@ -429,7 +429,7 @@ public class IdentityManager : IIdentityManager
         }
     }
 
-    public bool SetIdentity(ApolloLogonInformation logonInfo)
+    public bool SetIdentity(AgCoreLogonInformation logonInfo)
     {
         lock (_identitySync)
         {
@@ -567,7 +567,7 @@ public class IdentityManager : IIdentityManager
         }
     }
 
-    public bool GetCurrentLogonInformation(out ApolloLogonInformation logonInfo)
+    public bool GetCurrentLogonInformation(out AgCoreLogonInformation logonInfo)
     {
         lock (_identitySync)
         {
@@ -578,7 +578,7 @@ public class IdentityManager : IIdentityManager
                 return true;
             }
 
-            logonInfo = new ApolloLogonInformation();
+            logonInfo = new AgCoreLogonInformation();
             return false;
         }
     }

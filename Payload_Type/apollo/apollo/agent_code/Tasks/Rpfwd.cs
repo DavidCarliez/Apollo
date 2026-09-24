@@ -6,14 +6,14 @@
 
 #if RPFWD
 
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System.Net.Sockets;
 using System.Net;
 using System.Runtime.Serialization;
 using System;
-using ApolloInterop.Utils;
+using AgInterop.Utils;
 using System.Threading;
 
 namespace Tasks

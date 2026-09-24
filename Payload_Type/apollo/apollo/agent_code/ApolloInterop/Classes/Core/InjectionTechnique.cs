@@ -1,10 +1,10 @@
-﻿using ApolloInterop.Classes.Api;
-using ApolloInterop.Interfaces;
-using static ApolloInterop.Enums.Win32;
+﻿using AgInterop.Classes.Api;
+using AgInterop.Interfaces;
+using static AgInterop.Enums.Win32;
 using System;
 using System.ComponentModel;
 
-namespace ApolloInterop.Classes.Core
+namespace AgInterop.Classes.Core
 {
     public abstract class InjectionTechnique : IInjectionTechnique
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO.Pipes;
-using ApolloInterop.Structs.ApolloStructs;
+using AgInterop.Structs.AgCoreStructs;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface INamedPipeCallback
     {

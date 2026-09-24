@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Enums;
+﻿using AgInterop.Enums;
 
-namespace ApolloInterop.Features.WindowsTypesAndAPIs;
+namespace AgInterop.Features.WindowsTypesAndAPIs;
 
 public class Kernel32APIs
 {

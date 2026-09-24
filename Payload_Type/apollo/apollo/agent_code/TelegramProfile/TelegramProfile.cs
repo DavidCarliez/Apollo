@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using ApolloInterop.Classes;
-using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Serializers;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Types.Delegates;
+using AgInterop.Classes;
+using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
+using AgInterop.Serializers;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Types.Delegates;
 
 namespace TelegramTransport
 {

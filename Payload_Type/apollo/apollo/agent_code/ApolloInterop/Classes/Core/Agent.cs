@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-using ApolloInterop.Features.KerberosTickets;
-using ApolloInterop.Interfaces;
+using AgInterop.Features.KerberosTickets;
+using AgInterop.Interfaces;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public abstract class Agent : IAgent
     {

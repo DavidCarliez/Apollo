@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
-using ApolloInterop.Enums;
-using ApolloInterop.Features.WindowsTypesAndAPIs;
-using static ApolloInterop.Features.WindowsTypesAndAPIs.WinNTTypes;
-using static ApolloInterop.Features.WindowsTypesAndAPIs.LSATypes;
-using static ApolloInterop.Features.WindowsTypesAndAPIs.APIInteropTypes;
+using AgInterop.Enums;
+using AgInterop.Features.WindowsTypesAndAPIs;
+using static AgInterop.Features.WindowsTypesAndAPIs.WinNTTypes;
+using static AgInterop.Features.WindowsTypesAndAPIs.LSATypes;
+using static AgInterop.Features.WindowsTypesAndAPIs.APIInteropTypes;
 using System.Runtime.Serialization;
 
-namespace ApolloInterop.Features.KerberosTickets;
+namespace AgInterop.Features.KerberosTickets;
 
 public record struct LogonSessionData
 {

@@ -1,11 +1,11 @@
-﻿using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Utils;
+﻿using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public class AsyncTcpServer
     {

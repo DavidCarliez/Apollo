@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Classes.P2P;
-using ApolloInterop.Structs.MythicStructs;
-namespace ApolloInterop.Interfaces
+﻿using AgInterop.Classes.P2P;
+using AgInterop.Structs.MythicStructs;
+namespace AgInterop.Interfaces
 {
     public interface IPeerManager
     {

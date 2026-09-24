@@ -1,7 +1,7 @@
 using System;
 using System.Security.Principal;
 
-namespace ApolloInterop.Classes.Impersonation
+namespace AgInterop.Classes.Impersonation
 {
     public static class ImpersonationScope
     {

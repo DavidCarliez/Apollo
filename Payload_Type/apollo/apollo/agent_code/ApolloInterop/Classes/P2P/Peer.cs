@@ -1,18 +1,18 @@
-﻿using ApolloInterop.Classes.Core;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Serializers;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Utils;
+﻿using AgInterop.Classes.Core;
+using AgInterop.Classes.Events;
+using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
+using AgInterop.Serializers;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Structs.MythicStructs;
+using AgInterop.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace ApolloInterop.Classes.P2P
+namespace AgInterop.Classes.P2P
 {
     public abstract class Peer : IPeer
     {

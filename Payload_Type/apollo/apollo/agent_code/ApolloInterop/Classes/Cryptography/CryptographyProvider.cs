@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using ApolloInterop.Interfaces;
+using AgInterop.Interfaces;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     abstract public class CryptographyProvider : ICryptography
     {

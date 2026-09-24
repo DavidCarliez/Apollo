@@ -7,12 +7,12 @@
 #if UPLOAD
 
 using System;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System.Runtime.Serialization;
 using System.IO;
-using ApolloInterop.Utils;
+using AgInterop.Utils;
 using System.Linq;
 
 namespace Tasks

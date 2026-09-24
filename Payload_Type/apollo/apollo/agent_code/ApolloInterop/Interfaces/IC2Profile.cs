@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Structs.MythicStructs;
-using ApolloInterop.Types.Delegates;
-using ApolloInterop.Enums.ApolloEnums;
+﻿using AgInterop.Structs.MythicStructs;
+using AgInterop.Types.Delegates;
+using AgInterop.Enums.AgCoreEnums;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IC2Profile
     {

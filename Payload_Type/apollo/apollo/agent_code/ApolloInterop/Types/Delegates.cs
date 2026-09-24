@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Enums.ApolloEnums;
+﻿using AgInterop.Enums.AgCoreEnums;
 
-namespace ApolloInterop.Types
+namespace AgInterop.Types
 {
     namespace Delegates
     {

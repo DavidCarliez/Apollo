@@ -57,12 +57,12 @@ namespace WindowsService1
         public Service1()
         {
             //_eventLog1 = new EventLog();
-            //if (!EventLog.SourceExists("ApolloLog"))
+            //if (!EventLog.SourceExists("AgCoreLog"))
             //{
-            //    EventLog.CreateEventSource("ApolloLog", "MyApolloLog");
+            //    EventLog.CreateEventSource("AgCoreLog", "MyAgCoreLog");
             //}
-            //_eventLog1.Source = "ApolloLog";
-            //_eventLog1.Log = "MyApolloLog";
+            //_eventLog1.Source = "AgCoreLog";
+            //_eventLog1.Log = "MyAgCoreLog";
             //_eventLog1.WriteEntry($"about to initialize");
             InitializeComponent();
         }

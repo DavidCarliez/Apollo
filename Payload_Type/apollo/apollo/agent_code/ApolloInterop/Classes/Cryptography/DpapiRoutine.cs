@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
-using ApolloInterop.Interfaces;
+using AgInterop.Interfaces;
 
-namespace ApolloInterop.Classes.Cryptography
+namespace AgInterop.Classes.Cryptography
 {
     public class DpapiRoutine : ICryptographicRoutine
     {

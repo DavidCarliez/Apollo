@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApolloInterop.Classes
+namespace AgInterop.Classes
 {
     public class UUIDEventArgs : EventArgs
     {

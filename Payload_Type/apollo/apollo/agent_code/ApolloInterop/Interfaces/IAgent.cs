@@ -1,7 +1,7 @@
 ﻿using System.Threading;
-using ApolloInterop.Features.KerberosTickets;
+using AgInterop.Features.KerberosTickets;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IAgent
     {

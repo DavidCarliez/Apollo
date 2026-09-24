@@ -22,9 +22,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ApolloInterop.Structs.ApolloStructs;
+using AgInterop.Structs.AgCoreStructs;
 using PSKCryptography;
-using ApolloInterop.Serializers;
+using AgInterop.Serializers;
 #if WEBSOCKET
 using WebsocketTransport;
 #endif
@@ -40,7 +40,7 @@ using AzureBlobTransport;
 #if TELEGRAM
 using TelegramTransport;
 #endif
-namespace Apollo
+namespace AgCore
 {
     public static class Config
     {
@@ -67,7 +67,7 @@ namespace Apollo
                         { "proxy_pass", "" },
                         { "domain_front", "domain_front" },
                         { "killdate", "-1" },
-                        { "USER_AGENT", "Apollo-Refactor" },
+                        { "USER_AGENT", "AgCore-Refactor" },
 #else
                         { "callback_interval", "http_callback_interval_here" },
                         { "callback_jitter", "http_callback_jitter_here" },
@@ -104,7 +104,7 @@ namespace Apollo
                         { "encrypted_exchange_check", "T" },
                         { "domain_front", "domain_front" },
                         { "killdate", "-1" },
-                        { "USER_AGENT", "Apollo-Refactor" },
+                        { "USER_AGENT", "AgCore-Refactor" },
 #else
                         { "tasking_type", "websocket_tasking_type_here"},
                         { "callback_interval", "websocket_callback_interval_here" },

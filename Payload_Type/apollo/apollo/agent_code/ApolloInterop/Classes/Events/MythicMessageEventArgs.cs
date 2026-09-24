@@ -1,7 +1,7 @@
-﻿using ApolloInterop.Interfaces;
+﻿using AgInterop.Interfaces;
 using System;
 
-namespace ApolloInterop.Classes.Events
+namespace AgInterop.Classes.Events
 {
     public class MythicMessageEventArgs : EventArgs
     {

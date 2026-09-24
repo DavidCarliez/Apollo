@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Runtime.InteropServices;
-using ApolloInterop.Classes.Api;
-using ApolloInterop.Interfaces;
+using AgInterop.Classes.Api;
+using AgInterop.Interfaces;
 using static Injection.Shared.Win32;
 /*
  * Based heavily off the work of @winternl

@@ -7,9 +7,9 @@
 #if LINK
 
 using System;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using System.Runtime.Serialization;
 
 namespace Tasks
@@ -36,7 +36,7 @@ namespace Tasks
         public override void Start()
         {
             MythicTaskResponse resp;
-            ApolloInterop.Classes.P2P.Peer p = null;
+            AgInterop.Classes.P2P.Peer p = null;
             try
             {
                 LinkParameters parameters = _jsonSerializer.Deserialize<LinkParameters>(_data.Parameters);

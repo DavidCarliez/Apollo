@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using static ApolloInterop.Features.WindowsTypesAndAPIs.WinNTTypes;
-using static ApolloInterop.Features.WindowsTypesAndAPIs.APIInteropTypes;
-namespace ApolloInterop.Features.WindowsTypesAndAPIs;
+using static AgInterop.Features.WindowsTypesAndAPIs.WinNTTypes;
+using static AgInterop.Features.WindowsTypesAndAPIs.APIInteropTypes;
+namespace AgInterop.Features.WindowsTypesAndAPIs;
 
 public static class LSATypes
 {

@@ -1,8 +1,8 @@
-﻿using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Structs.ApolloStructs;
-using ApolloInterop.Constants;
+﻿using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Structs.AgCoreStructs;
+using AgInterop.Constants;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface ISerializer
     {

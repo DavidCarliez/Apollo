@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface ITask
     {

@@ -6,7 +6,7 @@
 
 #if POWERSHELL
 
-using ApolloInterop.Classes.IO;
+using AgInterop.Classes.IO;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,14 +14,14 @@ using System.IO;
 using System.Management.Automation;
 using System.Management.Automation.Host;
 using System.Threading;
-using ApolloInterop.Classes;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Structs.MythicStructs;
+using AgInterop.Classes;
+using AgInterop.Interfaces;
+using AgInterop.Structs.MythicStructs;
 using ST = System.Threading.Tasks;
 using System.Management.Automation.Runspaces;
 using System.Collections.Concurrent;
 using System.Runtime.Serialization;
-using ApolloInterop.Classes.Collections;
+using AgInterop.Classes.Collections;
 
 namespace Tasks
 {
@@ -317,7 +317,7 @@ namespace Tasks
         }
         
         
-        public powershell(IAgent agent, ApolloInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
+        public powershell(IAgent agent, AgInterop.Structs.MythicStructs.MythicTask data) : base(agent, data)
         {
             _flushMessages = () =>
             {
@@ -427,7 +427,7 @@ namespace Tasks
             _agent.GetTaskManager().AddTaskResponseToQueue(resp);
         }
 
-        private void OnBufferWrite(object sender, ApolloInterop.Classes.Events.StringDataEventArgs e)
+        private void OnBufferWrite(object sender, AgInterop.Classes.Events.StringDataEventArgs e)
         {
             if(e.Data != null)
             {

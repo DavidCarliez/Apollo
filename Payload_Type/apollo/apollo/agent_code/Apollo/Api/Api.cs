@@ -1,12 +1,12 @@
-﻿using ApolloInterop.Interfaces;
+﻿using AgInterop.Interfaces;
 using System;
-using ApolloInterop.Classes;
+using AgInterop.Classes;
 using PlaintextCryptography;
 using PSKCryptography;
-using ApolloInterop.Serializers;
-using ApolloInterop.Classes.Api;
+using AgInterop.Serializers;
+using AgInterop.Classes.Api;
 using SimpleResolver;
-namespace Apollo.Api
+namespace AgCore.Api
 {
     public class Api : IApi
     {

@@ -1,6 +1,6 @@
-﻿using ApolloInterop.Enums.ApolloEnums;
+﻿using AgInterop.Enums.AgCoreEnums;
 
-namespace ApolloInterop.Interfaces
+namespace AgInterop.Interfaces
 {
     public interface IMythicMessage
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ApolloInterop.Classes.Impersonation
+namespace AgInterop.Classes.Impersonation
 {
     [Flags]
     public enum PrivilegeAttributes : uint

