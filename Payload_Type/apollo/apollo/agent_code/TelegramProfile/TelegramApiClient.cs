@@ -12,6 +12,7 @@ namespace TelegramTransport
     internal sealed class TelegramApiClient : IDisposable
     {
         private readonly string _endpoint;
+        private readonly string _fileEndpoint;
         private readonly string _userAgent;
         private readonly IWebProxy _proxy;
         private long _nextUpdateId;
