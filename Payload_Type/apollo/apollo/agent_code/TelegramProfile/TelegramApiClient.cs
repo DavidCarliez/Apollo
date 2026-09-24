@@ -186,6 +186,46 @@ namespace TelegramTransport
             return configuredProxy;
         }
 
+        public byte[]? DownloadDocument(string fileId)
+        {
+            var request = new { file_id = fileId };
+            byte[] requestBody = Encoding.UTF8.GetBytes(JsonCodec.Serialize(request));
+            string responseBody = string.Empty;
+            try
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(_endpoint + "getFile");
+                req.Method = "POST";
+                req.ContentType = "application/json";
+                req.Accept = "application/json";
+                req.Proxy = _proxy;
+                using (var rs = req.GetRequestStream())
+                    rs.Write(requestBody, 0, requestBody.Length);
+                using (var resp = (HttpWebResponse)req.GetResponse())
+                using (var reader = new StreamReader(resp.GetResponseStream() ?? Stream.Null, Encoding.UTF8))
+                    responseBody = reader.ReadToEnd();
+            }
+            catch (WebException) { return null; }
+
+            var file = JsonCodec.Deserialize<TelegramFileResponse>(responseBody);
+            if (file == null || string.IsNullOrWhiteSpace(file.FilePath)) return null;
+
+            string downloadUrl = _endpoint + "file/" + file.FilePath;
+            try
+            {
+                HttpWebRequest dl = (HttpWebRequest)WebRequest.Create(downloadUrl);
+                dl.Method = "GET";
+                dl.Proxy = _proxy;
+                using (var resp = (HttpWebResponse)dl.GetResponse())
+                using (var stream = resp.GetResponseStream() ?? Stream.Null)
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    return ms.ToArray();
+                }
+            }
+            catch (WebException) { return null; }
+        }
+
         public void Dispose()
         {
         }
@@ -280,10 +320,32 @@ namespace TelegramTransport
 
         [DataMember(Name = "from")]
         public TelegramUser? From { get; set; }
+
+        [DataMember(Name = "document")]
+        public TelegramDocument? Document { get; set; }
     }
 
     [DataContract]
-    internal sealed class TelegramUser
+    internal sealed class TelegramDocument
+    {
+        [DataMember(Name = "file_id")]
+        public string FileId { get; set; } = string.Empty;
+        [DataMember(Name = "file_name")]
+        public string? FileName { get; set; }
+        [DataMember(Name = "file_size")]
+        public long FileSize { get; set; }
+    }
+
+    [DataContract]
+    internal sealed class TelegramFileResponse
+    {
+        [DataMember(Name = "file_id")]
+        public string FileId { get; set; } = string.Empty;
+        [DataMember(Name = "file_path")]
+        public string? FilePath { get; set; }
+    }
+
+internal sealed class TelegramUser
     {
         [DataMember(Name = "is_bot")]
         public bool IsBot { get; set; }
